@@ -14,6 +14,24 @@
   \setbeamertemplate{caption}[numbered]
 } 
 
+\usepackage{tikz}
+\usepackage{tikz}
+\usepackage{graphicx}
+\newcommand*{\ClipSep}{0.09cm}%
+\newcommand{\rlogo}[3]{%
+\begin{tikzpicture}
+\node [inner sep=#1] at (0,0) {\includegraphics[width=#2]{#3}};
+\draw [white, rounded corners=\ClipSep, line width=\ClipSep] 
+    (current bounding box.north west) -- 
+    (current bounding box.north east) --
+    (current bounding box.south east) --
+    (current bounding box.south west) -- cycle
+    ;
+\end{tikzpicture}}
+
+\newcommand{\mylogo}[3]{%
+	\tikz\node[draw,thick,inner sep=2pt,rounded corners=#1,text=white,path picture={\node at (path picture bounding box.center){\includegraphics[width=#2]{#3}};}]{};
+}%
 \usepackage[percent]{overpic}
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
@@ -47,22 +65,29 @@
 \end{frame}
 
 \section{Introduction}
+\subsection{What is Linux}
 
 
 \begin{frame}
-\begin{itemize}
-\item Your introduction goes here!
-\item Use \texttt{itemize} to organize your main points.
-\end{itemize}
-
+\textbf{Linux is a family of open source Unix-like operating systems based on the Linux kernel, Typically packaged in a Linux distribution}
 \vskip 1cm
-
-\begin{block}{Examples}
-Some examples of commonly used commands and features are included, to help you get started.
-\end{block}
+\rlogo{1pt}{2.0cm}{./ubuntu.png}
+\rlogo{1pt}{2.0cm}{./centos.png}
+\rlogo{1pt}{2.0cm}{./fedora.jpeg}
+\rlogo{1pt}{2.0cm}{./arch.jpeg}
+\rlogo{1pt}{2.0cm}{./lubuntu.png}
+\newline
+\rlogo{1pt}{2.0cm}{./rhel.png}
+\rlogo{1pt}{2.0cm}{./kali3.jpeg}
+\rlogo{1pt}{2.0cm}{./debian.png}
+\rlogo{1pt}{2.0cm}{./mate.png}
+\rlogo{1pt}{2.0cm}{./suse.png}
+%\begin{block}{Examples}
+%Some examples of commonly used commands and features are included, to help you get started.
+%\end{block}
 
 \end{frame}
-
+\subsection{Why Linux}
 \section{Some \LaTeX{} Examples}
 
 \subsection{Tables and Figures}
