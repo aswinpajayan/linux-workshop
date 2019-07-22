@@ -1,0 +1,33 @@
+filesytem
+distros ubuntu ubuntumate Lubuntu Arch centos Kali
+sudo user and normal user
+permissions chmod ls -lrt
+aptitude - sudo apt update upgrade install 
+ssh -X scp
+cd ls cat find . -name
+touch 
+mkdir 
+man apropos (with unzip)
+input output redirection
+pipes 
+sed
+
+
+git 
+how to run python from linux 
+how to run ghdl 
+bash files
+
+cut ,
+variables 
+for loop
+reading files
+
+
+
+
+vim 
+ravan rudra 
+gnome-tweaks
+conky
+
