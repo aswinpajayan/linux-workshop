@@ -45,7 +45,7 @@
 
 
 
-\title[Linux: Getting Feet wet]{Linux : Getting feet wet}
+\title[Linux: Getting Feet wet]{Linux : Getting your feet wet}
 \author{Bridge Course 2019}
 \institute{EE Dept IITB}
 \date{24 July 2019}
@@ -93,16 +93,67 @@
 	\item<2-> Access to hardware - almost no restrictions
 	\item<3-> Opensource - view code , modify , learn create
 	\item<4-> Tailor Made - servers , fedora scientific
-	\item<5-> Free
-	\item<6-> Sabko Cadence chalana he
-	\item<7-> Friend dont let friends use windows
-	\item<8-> Microsoft gives you windows . Linux gives you whole house
+	\item<5-> Top 100 fastest supercomputers run linux 
+	\item<6-> Almost all tech giants funds linux development
+\end{enumerate}
+\end{frame}
+\begin{frame}{Why Linux ctd..}
+\begin{enumerate}
+	\item<2-> Free
+	\item<3-> Sabko Cadence chalana he
+	\item<4-> Friends urge friends to use windows 
+	\item<5-> Microsoft gives you windows. Linux gives you whole house
 \end{enumerate} 
 \end{frame}
 \section{Linux Basics}
 \subsection{Linux File System}
+{
+	\usebackgroundtemplate%
+	{%
+	    \includegraphics[width=\paperwidth,height=\paperheight]{./filesystem.pdf}%
+	}
 
+	\begin{frame}{File System Hierarchy}
+	
+\end{frame}
+}
 
+{\fontfamily{Serif}\selectfont
+\begin{frame}{Linux File System:  Basic commands}
+\begin{enumerate}
+	\item<2->ls  - list the files the current directory
+	\item<3->pwd - print the working directory
+	\item<4->touch <file\_name> - create an empty file 
+	\item<5->mkdir <dir\_name> - create a directory
+	\item<6->cd 	- change directory 
+\end{enumerate}
+	\begin{alertblock}{Note}
+		{use : man <command> - to get the full details regarding any command }
+	\end{alertblock}
+\end{frame}
+}
+{
+	\usebackgroundtemplate%
+	{%
+	    \includegraphics[width=\paperwidth,height=\paperheight]{./back_net.jpg}%
+	}
+\fontfamily{Serif}\selectfont
+\begin{frame}{Users, Group and Permissions}
+	As we saw, everything can be treated as a file in linux. \\
+	\pause
+	Who has permissions to edit these files???\\
+	\pause
+	For each file, linux assigns a set of attributes , some of these decides which users can {\textbf{Read , Write}} and (if possible )\textbf{Execute} the file. These attributes are called the file permissions. \\
+	\pause
+	For each file, permissions are given in three categories .
+	\includegraphics[scale=0.5]{./perm.png}%
+
+	\vskip 1cm
+			USER|GROUP|ALL . \\
+			 RWX-RWX-RWX\\
+			
+\end{frame}
+}
 \section{Some \LaTeX{} Examples}
 
 \subsection{Tables and Figures}
