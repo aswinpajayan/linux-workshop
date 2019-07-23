@@ -44,10 +44,10 @@
 }
 
 \makeatletter
-\gdef\@ptsize{2} % 1 for 11pt doc, 2 for 12pt
+%\gdef\@ptsize{2} % 1 for 11pt doc, 2 for 12pt
 \makeatother
 \usepackage{setspace}
-\doublespace
+%\doublespace
 
 \title[Linux: Get Your Feet Wet]{Linux : Get your feet wet}
 \author{Bridge Course '19}
@@ -105,7 +105,7 @@
 \begin{enumerate}
 	\item<2-> Free
 	\item<3-> Sabko Cadence chalana he
-	\item<4-> Friends urge friends to use windows 
+	\item<4-> Friends urge friends to use linux 
 	\item<5-> Microsoft gives you windows. Linux gives you whole house
 \end{enumerate} 
 \end{frame}
@@ -157,13 +157,86 @@
 \begin{frame}{Users, Group and Permissions}
 \begin{center}
 		\includegraphics[scale=0.16]{./file_permissions2.png}%
+\end{center}
+\end{frame}
 
 %	\vskip 1cm
-			USER|GROUP|ALL . \\
-			 RWX-RWX-RWX\\
-\end{center}
+	\begin{frame}{TODO}
+		\begin{block}{hint}
+		USER|GROUP|ALL . \\
+		 RWX-RWX-RWX\\
+		\end{block}
+		\begin{enumerate}
+			\item<1->	use ls -l command to find out permission of files given to you.
+			\item<2->	try executing 
+			\item<2->		./hello\_perm.sh 
+			\item<2->	what do you see
+			\item<3->	change permission the file using 
+			\item<3->		chmod 111 hello\_perm.sh
+			\item<3->	try executing now  . 
+			\item<4->	try to read file using 
+			\item<4->	cat hello\_perm.sh
+			\item<4->		chmod 755 hello\_perm.sh 
+			\item<4->	cat hello\_perm.sh
+		\end{enumerate}
 
-			
+	\end{frame}
+}
+\section{Standard out and IO redirection}
+{
+	\fontfamily{Serif}\selectfont
+\begin{frame}{Echo and output redirection}
+	\begin{enumerate}
+		\item<1-> echo "test"
+		\item<2-> output redirection (w+), echo "to file" > test-file
+		\item<3-> appeding (a+), echo "added new line " >> test-file
+		\item<4-> substitutions, echo `pwd`
+			\item<5-> substitutions , echo `cat test-file`
+		\item<5-> echo "current directory is `pwd`"
+	\end{enumerate}
+\end{frame}
+\begin{frame}{cut command}
+	Cut command is used to extract one or more fields from a file with fields seperated by a delimiter\\
+	use cat  to view the contents of examples/cut-input\\ \pause
+	cut syntax - cut -d '<delimiter>' -f<number> <filename>\\
+	try printing out only the names\\ \pause
+	ans : cut -d ',' -f1 cut-input\\
+	what is the command to get only specialisation ? \pause
+
+
+\end{frame}
+\begin{frame}{sort command}
+	sort can be applied on any of the fields\\ \pause 
+	sort syntax - sort -t '<delimiter>' -k<number> <filename>\\
+	try sorting based the names\\ \pause
+	ans : sort -t ',' -k1\\
+	what is the command to get only specialisation ? \pause
+
+
+\end{frame}
+\begin{frame}{grep command}
+	grep is used for finding occurences\\ 
+	\begin{enumerate}
+		\item<2-> grep <find> <filename>
+		\item<2-> grep pclab cut-input1
+		\item<3-> grep -i variant 
+		\item<4-> grep -i ee5 cut-input2 -c 
+		\item<6-> grep with regexes 
+	\end{enumerate}
+
+
+\end{frame}
+\begin{frame}{pipes(|) and the Unix philosophy}
+	Pipe allows us to redirect the output of one command as the input of another command\\ 
+	common syntax -   command1 input-file | command2 \\
+	eg: cat test-file | sort \\
+	Q: write the command to get only the sorted names from file cut-input2\\
+	use cat cut-input2 to inspect the file\\ \pause
+	ans : cut -d ',' -f1 cut-input2 | sort \\
+	what is the command to sort all lines based on names for EE1?\\ \pause
+	grep -i ee1 | sort -t ',' -k1 
+
+
 \end{frame}
 }
 \section{Some \LaTeX{} Examples}
