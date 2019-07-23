@@ -43,10 +43,14 @@
     \includegraphics[width=\paperwidth,height=\paperheight]{./back_net.jpg}%
 }
 
+\makeatletter
+\gdef\@ptsize{2} % 1 for 11pt doc, 2 for 12pt
+\makeatother
+\usepackage{setspace}
+\doublespace
 
-
-\title[Linux: Getting Feet wet]{Linux : Getting your feet wet}
-\author{Bridge Course 2019}
+\title[Linux: Get Your Feet Wet]{Linux : Get your feet wet}
+\author{Bridge Course '19}
 \institute{EE Dept IITB}
 \date{24 July 2019}
 
@@ -108,14 +112,16 @@
 \section{Linux Basics}
 \subsection{Linux File System}
 {
-	\usebackgroundtemplate%
-	{%
-	    \includegraphics[width=\paperwidth,height=\paperheight]{./filesystem.pdf}%
-	}
+	%\usebackgroundtemplate%
+	%{%
+	 %   \includegraphics[height=0.8\textheight]{./filesystem.pdf}%
+	%}
 
 	\begin{frame}{File System Hierarchy}
-	
-\end{frame}
+		\begin{figure}
+			\includegraphics[width=0.9\paperwidth,height=0.8\paperheight]{./filesystem.pdf}
+		\end{figure}
+	\end{frame}
 }
 
 {\fontfamily{Serif}\selectfont
@@ -145,12 +151,18 @@
 	\pause
 	For each file, linux assigns a set of attributes , some of these decides which users can {\textbf{Read , Write}} and (if possible )\textbf{Execute} the file. These attributes are called the file permissions. \\
 	\pause
-	For each file, permissions are given in three categories .
-	\includegraphics[scale=0.5]{./perm.png}%
+	For each file, permissions are given in three categories.
+			
+\end{frame}
+\begin{frame}{Users, Group and Permissions}
+\begin{center}
+		\includegraphics[scale=0.45]{./file_permissions_white.png}%
 
-	\vskip 1cm
+%	\vskip 1cm
 			USER|GROUP|ALL . \\
 			 RWX-RWX-RWX\\
+\end{center}
+
 			
 \end{frame}
 }
