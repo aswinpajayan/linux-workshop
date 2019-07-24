@@ -44,10 +44,15 @@
 }
 
 \makeatletter
-%\gdef\@ptsize{2} % 1 for 11pt doc, 2 for 12pt
+\gdef\@ptsize{2} % 1 for 11pt doc, 2 for 12pt
 \makeatother
 \usepackage{setspace}
-%\doublespace
+\doublespace
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+\resetcounteronoverlays{saveenumi}
 
 \title[Linux: Get Your Feet Wet]{Linux : Get your feet wet}
 \author{Bridge Course '19}
@@ -163,23 +168,30 @@
 %	\vskip 1cm
 	\begin{frame}{TODO}
 		\begin{block}{hint}
-		USER|GROUP|ALL . \\
-		 RWX-RWX-RWX\\
+		OWNER|GROUP|ALL. \\
+		RWX-RWX-RWX\\
 		\end{block}
 		\begin{enumerate}
 			\item<1->	use ls -l command to find out permission of files given to you.
 			\item<2->	try executing 
 			\item<2->		./hello\_perm.sh 
-			\item<2->	what do you see
-			\item<3->	change permission the file using 
-			\item<3->		chmod 111 hello\_perm.sh
-			\item<3->	try executing now  . 
-			\item<4->	try to read file using 
-			\item<4->	cat hello\_perm.sh
-			\item<4->		chmod 755 hello\_perm.sh 
-			\item<4->	cat hello\_perm.sh
+			\item<2->	what do you see	
+			\seti		
 		\end{enumerate}
 
+	\end{frame}
+	
+	\begin{frame}
+		\begin{enumerate}
+			\conti
+			\item<1->	change permission the file using 
+			\item<1->		chmod 111 hello\_perm.sh
+			\item<1->	try executing now  . 
+			\item<2->	try to read file using 
+			\item<2->	cat hello\_perm.sh
+			\item<2->		chmod 755 hello\_perm.sh 
+			\item<2->	cat hello\_perm.sh
+		\end{enumerate}
 	\end{frame}
 }
 \section{Standard out and IO redirection}
@@ -221,7 +233,7 @@
 		\item<2-> grep pclab cut-input1
 		\item<3-> grep -i variant 
 		\item<4-> grep -i ee5 cut-input2 -c 
-		\item<6-> grep with regexes 
+		\item<5-> grep with regexes 
 	\end{enumerate}
 
 
@@ -239,46 +251,119 @@
 
 \end{frame}
 }
-\section{Some \LaTeX{} Examples}
 
-\subsection{Tables and Figures}
+\section{Git Basics}
+{
+\subsection{Git - What & Why?}
 
-\begin{frame}{Tables and Figures}
-
-\begin{itemize}
-\item Use \texttt{tabular} for basic tables --- see Table~\ref{tab:widgets}, for example.
-\item You can upload a figure (JPEG, PNG or PDF) using the files menu. 
-\item To include it in your document, use the \texttt{includegraphics} command (see the comment below in the source code).
-\end{itemize}
-
-% Commands to include a figure:
-%\begin{figure}
-%\includegraphics[width=\textwidth]{your-figure's-file-name}
-%\caption{\label{fig:your-figure}Caption goes here.}
-%\end{figure}
-
-\begin{table}
-\centering
-\begin{tabular}{l|r}
-Item & Quantity \\\hline
-Widgets & 42 \\
-Gadgets & 13
-\end{tabular}
-\caption{\label{tab:widgets}An example table.}
-\end{table}
-
+\begin{frame}{Git - What & Why?}
+	\begin{enumerate}
+		\item<2-> Version control system
+		\item<2-> Manages source code history
+		\item<2-> Git is local
+		\item<3-> Free and open source
+		\item<3-> Fast and small		
+	\end{enumerate}
 \end{frame}
 
-\subsection{Mathematics}
-
-\begin{frame}{Readable Mathematics}
-
-Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
-$$S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
-      = \frac{1}{n}\sum_{i}^{n} X_i$$
-denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
-
+\begin{frame}{GitHub}
+	\begin{enumerate}
+		\item<2-> Git-based repository hosting platform with over 26 million users
+		\item<3-> GitHub projects can be made public and every publicly shared code is freely open to everyone
+		\item<4-> You can have private projects as well
+		\item<5-> Can be used for issue tracking, documentation, and wikis
+	\end{enumerate}
 \end{frame}
 
+\begin{frame}{Other Git repo hosting platforms}
+	\begin{enumerate}
+		\item AWS codecommit
+		\item Gitlab - you can also create your own git server using gitlab
+		\item Bitbucket
+		\item Sourceforge
+		\item ...
+		\item git.ee.iitb.ac.in 
+	\end{enumerate}
+\end{frame}
+
+\subsection{Git - Getting Started}
+
+\begin{frame}{Getting Started}
+	\begin{enumerate}
+		\item<2-> Install git
+		\item<2-> sudo apt install git-all
+		\item<3-> Check installation
+		\item<3-> git -- --version		
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Getting Started}
+	\begin{enumerate}
+		\item<2-> Cloning a repository
+		\item<2-> git clone repo-address
+		\item<2-> Eg. git clone https://github.com/aswinpajayan/linux-workshop.git
+		\item<3-> Adding the changes
+		\item<3-> git add updated-filename
+		\seti
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Getting Started}
+	\begin{enumerate}
+		\conti
+		\item<2-> Committing changes
+		\item<2-> git commit -m "Commit message"
+		\itme<3-> Pushing changes to remote repository
+		\item<3-> git push origin branch-name
+		\item<4-> Pulling latest changes from remote repository
+		\item<4-> git pul origin branch-name
+		\seti
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Getting Started}
+	\begin{enumerate}
+		\conti
+		\item<2-> Other useful commands
+		\item<2-> git branch
+		\item<2-> git status
+		\item<2-> git diff filename
+	\end{enumerate}
+\end{frame}
+
+}
+
+\section{Running python code}
+{
+	\subsection{Running python code}
+	\begin{frame}{Running python code}
+		\item<2-> Install Python
+		\item<3-> For Python 3: python3 <filename>.py
+		\item<3-> For Python 2: python <filename>.py
+	\end{frame}		
+}
+
+\section{Facilities Provided by EE Dept}
+{
+\begin{frame}{Facilities Provided by EE Dept}
+	\begin{enumerate}
+		\item<2-> Matlab Servers - Ravan and Rudra
+		\item<2-> Ravan - 10.107.1.5
+		\item<2-> Rudra - 10.107.1.6
+		\item<3-> Personal web page hosting								\item<4-> EE Student email
+		\item<5-> PC Lab, 1st Floor, EE Dept.
+		\seti
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Facilities Provided by EE Dept}
+	\begin{enumerate}
+		\conti
+		\item<2-> For more details : Visit PCLab FAQ
+		\item<2-> \url{https://www.ee.iitb.ac.in/pclab_faq/}
+		\item<3-> Use : Thunderbird
+	\end{enumerate}
+\end{frame}
+}
 \end{document}
 
